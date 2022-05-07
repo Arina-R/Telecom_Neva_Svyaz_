@@ -28,5 +28,36 @@ namespace Telecom_Neva_Svyaz
             MainFrame.Navigate(new Page_subscribers());
             Manager.MainFrame = MainFrame;
         }
+
+     
+        private void B_Sub_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Page_subscribers());
+        }
+
+        private void B_management_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Page_equipment_management());
+        }
+
+        private void B_assets_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Page_Assets());
+        }
+
+        private void B_Billing_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Page_Billing());
+        }
+
+        private void B_support_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Page_Users_support());
+        }
+
+        private void B_CRM_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Page_CRM());
+        }
     }
 }

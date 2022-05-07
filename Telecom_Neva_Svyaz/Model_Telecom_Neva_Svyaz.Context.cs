@@ -13,22 +13,22 @@ namespace Telecom_Neva_Svyaz
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Telecom_Neva_SvyazEntities : DbContext
+    public partial class Telecom_Neva_SvyazEntities1 : DbContext
     {
-
-        private static Telecom_Neva_SvyazEntities context;
-        public Telecom_Neva_SvyazEntities()
-            : base("name=Telecom_Neva_SvyazEntities")
+        public Telecom_Neva_SvyazEntities1()
+            : base("name=Telecom_Neva_SvyazEntities1")
         {
         }
 
-        public static Telecom_Neva_SvyazEntities GetContext()
+        private static Telecom_Neva_SvyazEntities1 context;
+        public static Telecom_Neva_SvyazEntities1 GetContext()
         {
             if (context == null)
-                context = new Telecom_Neva_SvyazEntities();
+                context = new Telecom_Neva_SvyazEntities1();
 
             return context;
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

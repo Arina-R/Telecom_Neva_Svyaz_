@@ -21,10 +21,14 @@
         <Style TargetType="Label">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Foreground" Value="#4A67F7"/>
-            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontSize" Value="25"/>
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="Height" Value="30"/>
+            <Setter Property="Foreground" Value="#4A67F7"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="25"/>
             <Setter Property="Foreground" Value="#4A67F7"/>
         </Style>
     </Application.Resources>

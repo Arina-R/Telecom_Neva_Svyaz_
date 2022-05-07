@@ -87,13 +87,41 @@
     <Compile Include="Events.cs">
       <DependentUpon>Model_Telecom_Neva_Svyaz.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model_Telecom_Neva_Svyaz.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Telecom_Neva_Svyaz.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model_Telecom_Neva_Svyaz.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_Telecom_Neva_Svyaz.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model_Telecom_Neva_Svyaz.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Telecom_Neva_Svyaz.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page_Agent_Information.xaml.cs">
+      <DependentUpon>Page_Agent_Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page_Assets.xaml.cs">
+      <DependentUpon>Page_Assets.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page_Billing.xaml.cs">
+      <DependentUpon>Page_Billing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page_CRM.xaml.cs">
+      <DependentUpon>Page_CRM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page_equipment management.xaml.cs">
+      <DependentUpon>Page_equipment management.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Page_subscribers.xaml.cs">
       <DependentUpon>Page_subscribers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Page_Users_support.xaml.cs">
+      <DependentUpon>Page_Users_support.xaml</DependentUpon>
     </Compile>
     <Compile Include="Passport.cs">
       <DependentUpon>Model_Telecom_Neva_Svyaz.tt</DependentUpon>
@@ -140,22 +168,36 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Page_Agent_Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Page_Assets.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Page_Billing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Page_CRM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Page_equipment management.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Page_subscribers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Page_Users_support.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model_Telecom_Neva_Svyaz.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_Telecom_Neva_Svyaz.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model_Telecom_Neva_Svyaz.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model_Telecom_Neva_Svyaz.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -190,20 +232,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model_Telecom_Neva_Svyaz.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model_Telecom_Neva_Svyaz.Context.cs</LastGenOutput>
       <DependentUpon>Model_Telecom_Neva_Svyaz.edmx</DependentUpon>
+      <LastGenOutput>Model_Telecom_Neva_Svyaz.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model_Telecom_Neva_Svyaz.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model_Telecom_Neva_Svyaz.edmx</DependentUpon>
       <LastGenOutput>Model_Telecom_Neva_Svyaz.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

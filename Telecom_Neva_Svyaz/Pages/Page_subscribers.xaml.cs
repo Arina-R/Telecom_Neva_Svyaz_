@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Telecom_Neva_Svyaz.classes;
 
 namespace Telecom_Neva_Svyaz.Pages
 {
@@ -27,8 +28,13 @@ namespace Telecom_Neva_Svyaz.Pages
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            Telecom_Neva_SvyazEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            DG_Subscriber.ItemsSource = Telecom_Neva_SvyazEntities.GetContext().Subscriber.ToList();
+            Telecom_Neva_SvyazEntities1.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            DG_Subscriber.ItemsSource = Telecom_Neva_SvyazEntities1.GetContext().Subscriber.ToList();
+        }
+
+        private void BtnFull_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new Page_Agent_Information((sender as Button).DataContext as Subscriber));
         }
     }
 }

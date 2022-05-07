@@ -1,0 +1,23 @@
+﻿<Page x:Class="Telecom_Neva_Svyaz.Pages.Page_CRM"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Telecom_Neva_Svyaz.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page_CRM">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="126*"/>
+            <ColumnDefinition Width="47*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="391*"/>
+        </Grid.RowDefinitions>
+        <Label Content="CRM" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="70" Width="413"/>
+        <ComboBox Margin="469,0,79,31" VerticalAlignment="Bottom" Height="20" Grid.ColumnSpan="2"/>
+    </Grid>
+</Page>

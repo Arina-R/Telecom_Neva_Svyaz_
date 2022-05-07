@@ -14,16 +14,16 @@
         </Grid.ColumnDefinitions>
         <Frame x:Name="MainFrame" Grid.Column="1" HorizontalAlignment="Left" Height="470" VerticalAlignment="Top" Width="692"/>
         <Image HorizontalAlignment="Left" Height="80" Margin="10,10,0,0" VerticalAlignment="Top" Width="80" Source="pack://siteoforigin:,,,/Resources/logo.jpg"/>
-        <Button Content="Абоненты" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
-        <Button HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top">
+        <Button x:Name="B_Sub" Content="Абоненты" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Click="B_Sub_Click"/>
+        <Button Name="B_management" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Click="B_management_Click">
             <TextBlock TextAlignment="Center">Управление<LineBreak/>оборудованием</TextBlock>
         </Button>
-        <Button Content="Активы" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
-        <Button Content="Биллинг" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" />
-        <Button  HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" >
+        <Button Name="B_assets" Content="Активы" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Click="B_assets_Click"/>
+        <Button x:Name="B_Billing" Content="Биллинг" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Click="B_Billing_Click" />
+        <Button Name="B_support" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top" Click="B_support_Click" >
             <TextBlock TextAlignment="Center">Поддержка<LineBreak/>пользователей</TextBlock>
         </Button>
-        <Button Content="CRM" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top"/>
+        <Button Name="B_CRM" Content="CRM" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Click="B_CRM_Click"/>
 
     </Grid>
 </Window>

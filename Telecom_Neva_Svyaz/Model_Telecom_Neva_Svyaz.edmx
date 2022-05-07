@@ -161,7 +161,6 @@
             <PropertyRef Name="ID_subscriber" />
           </Key>
           <Property Name="ID_subscriber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_user" Type="int" Nullable="false" />
           <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="varchar" MaxLength="50" Nullable="false" />
@@ -375,18 +374,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Subscriber_Users1">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="ID_user" />
-            </Principal>
-            <Dependent Role="Subscriber">
-              <PropertyRef Name="ID_user" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Support_Subscriber">
           <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
           <End Role="Support" Type="Self.Support" Multiplicity="*" />
@@ -499,10 +486,6 @@
           <AssociationSet Name="FK_Service-subscriber_Subscriber" Association="Self.FK_Service-subscriber_Subscriber">
             <End Role="Subscriber" EntitySet="Subscriber" />
             <End Role="Service-subscriber" EntitySet="Service-subscriber" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Subscriber_Users1" Association="Self.FK_Subscriber_Users1">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Subscriber" EntitySet="Subscriber" />
           </AssociationSet>
           <AssociationSet Name="FK_Support_Subscriber" Association="Self.FK_Support_Subscriber">
             <End Role="Subscriber" EntitySet="Subscriber" />
@@ -689,7 +672,6 @@
             <PropertyRef Name="ID_subscriber" />
           </Key>
           <Property Name="ID_subscriber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_user" Type="Int32" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -700,7 +682,6 @@
           <NavigationProperty Name="Passport" Relationship="Self.FK_Passport_Subscriber" FromRole="Subscriber" ToRole="Passport" />
           <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_Subscriber" FromRole="Subscriber" ToRole="Rent" />
           <NavigationProperty Name="Request" Relationship="Self.FK_Request_Subscriber" FromRole="Subscriber" ToRole="Request" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Subscriber_Users1" FromRole="Subscriber" ToRole="Users" />
           <NavigationProperty Name="Support" Relationship="Self.FK_Support_Subscriber" FromRole="Subscriber" ToRole="Support" />
           <NavigationProperty Name="Service" Relationship="Self.Service_subscriber" FromRole="Subscriber" ToRole="Service" />
         </EntityType>
@@ -720,7 +701,6 @@
           <Property Name="ID_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_role" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
-          <NavigationProperty Name="Subscriber" Relationship="Self.FK_Subscriber_Users1" FromRole="Users" ToRole="Subscriber" />
         </EntityType>
         <Association Name="FK_Address_District">
           <End Role="District" Type="Self.District" Multiplicity="1" />
@@ -902,18 +882,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Subscriber_Users1">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="ID_user" />
-            </Principal>
-            <Dependent Role="Subscriber">
-              <PropertyRef Name="ID_user" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Support_Subscriber">
           <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
           <End Role="Support" Type="Self.Support" Multiplicity="*" />
@@ -930,7 +898,7 @@
           <End Role="Service" Type="Self.Service" Multiplicity="*" />
           <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Telecom_Neva_SvyazEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Telecom_Neva_SvyazEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Address" EntityType="Self.Address" />
           <EntitySet Name="Contract" EntityType="Self.Contract" />
           <EntitySet Name="Development_type" EntityType="Self.Development_type" />
@@ -1009,10 +977,6 @@
             <End Role="Service_type" EntitySet="Service_type" />
             <End Role="Service" EntitySet="Service" />
           </AssociationSet>
-          <AssociationSet Name="FK_Subscriber_Users1" Association="Self.FK_Subscriber_Users1">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Subscriber" EntitySet="Subscriber" />
-          </AssociationSet>
           <AssociationSet Name="FK_Support_Subscriber" Association="Self.FK_Support_Subscriber">
             <End Role="Subscriber" EntitySet="Subscriber" />
             <End Role="Support" EntitySet="Support" />
@@ -1027,7 +991,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Telecom_Neva_SvyazModelContainer" CdmEntityContainer="Telecom_Neva_SvyazEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Telecom_Neva_SvyazModelContainer" CdmEntityContainer="Telecom_Neva_SvyazEntities1">
           <EntitySetMapping Name="Address">
             <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Address">
               <MappingFragment StoreEntitySet="Address">
@@ -1188,7 +1152,6 @@
             <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Subscriber">
               <MappingFragment StoreEntitySet="Subscriber">
                 <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
-                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
