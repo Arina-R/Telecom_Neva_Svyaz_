@@ -1,0 +1,1248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Telecom_Neva_SvyazModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID_address" />
+          </Key>
+          <Property Name="ID_address" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_district" Type="int" Nullable="false" />
+          <Property Name="street" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="house" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="building" Type="varchar" MaxLength="10" />
+          <Property Name="flat" Type="int" Nullable="false" />
+          <Property Name="room" Type="int" />
+          <Property Name="ID_subscriber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ID_contract" />
+          </Key>
+          <Property Name="ID_contract" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contract_Number" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Conclusion_date" Type="date" Nullable="false" />
+          <Property Name="Termination_date" Type="date" />
+          <Property Name="Termination_reason" Type="date" />
+          <Property Name="ID_subscriber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Development-type">
+          <Key>
+            <PropertyRef Name="ID_development_type" />
+          </Key>
+          <Property Name="ID_development_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="ID_district" />
+          </Key>
+          <Property Name="ID_district" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Square" Type="float" Nullable="false" />
+          <Property Name="Population" Type="int" Nullable="false" />
+          <Property Name="Stations_number" Type="int" Nullable="false" />
+          <Property Name="ID_development" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="ID_equipment" />
+          </Key>
+          <Property Name="ID_equipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Serial_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_type" Type="int" Nullable="false" />
+          <Property Name="ID_subscriber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipment-type">
+          <Key>
+            <PropertyRef Name="ID_type_equipment" />
+          </Key>
+          <Property Name="ID_type_equipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID_Events" />
+          </Key>
+          <Property Name="ID_Events" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="ID_role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="ID_passport" />
+          </Key>
+          <Property Name="ID_passport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_subscriber" Type="int" Nullable="false" />
+          <Property Name="Passport_Series" Type="int" Nullable="false" />
+          <Property Name="Passport_number" Type="int" Nullable="false" />
+          <Property Name="Issue_date" Type="date" Nullable="false" />
+          <Property Name="Issued_by" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Problem">
+          <Key>
+            <PropertyRef Name="ID_problem" />
+          </Key>
+          <Property Name="ID_problem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="ID_rent" />
+          </Key>
+          <Property Name="ID_rent" Type="int" Nullable="false" />
+          <Property Name="Contract_number" Type="int" Nullable="false" />
+          <Property Name="Payment_terms" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_subscriber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="ID_request" />
+          </Key>
+          <Property Name="ID_request" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Request_number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_service" Type="int" Nullable="false" />
+          <Property Name="ID_problem" Type="int" Nullable="false" />
+          <Property Name="Creation_date" Type="date" Nullable="false" />
+          <Property Name="Closing_date" Type="date" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Discription" Type="varchar" MaxLength="200" />
+          <Property Name="ID_subscriber" Type="int" Nullable="false" />
+          <Property Name="ID_equipment" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID_service" />
+          </Key>
+          <Property Name="ID_service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="ID_kindservice" Type="int" Nullable="false" />
+          <Property Name="ID_serviceType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service-kind">
+          <Key>
+            <PropertyRef Name="ID_kindservice" />
+          </Key>
+          <Property Name="ID_kindservice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Telecom_Neva_Svyaz.dbo.Service-subscriber" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Service-subscriber">
+          <Key>
+            <PropertyRef Name="ID_service" />
+            <PropertyRef Name="ID_subscriber" />
+          </Key>
+          <Property Name="ID_service" Type="int" Nullable="false" />
+          <Property Name="ID_subscriber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service-type">
+          <Key>
+            <PropertyRef Name="ID_serviceType" />
+          </Key>
+          <Property Name="ID_serviceType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="ID_subscriber" />
+          </Key>
+          <Property Name="ID_subscriber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_user" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subscriber_number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Personal_account" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="ID_support" />
+          </Key>
+          <Property Name="ID_support" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_subscriber" Type="int" Nullable="false" />
+          <Property Name="Application_data" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID_user" />
+          </Key>
+          <Property Name="ID_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_role" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Address_District">
+          <End Role="District" Type="Self.District" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="ID_district" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ID_district" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_District_Development-type">
+          <End Role="Development-type" Type="Self.Development-type" Multiplicity="1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Development-type">
+              <PropertyRef Name="ID_development_type" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ID_development" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Equipment-type">
+          <End Role="Equipment-type" Type="Self.Equipment-type" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment-type">
+              <PropertyRef Name="ID_type_equipment" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="ID_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passport_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Passport" Type="Self.Passport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Passport">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Equipment">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID_equipment" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ID_equipment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Problem">
+          <End Role="Problem" Type="Self.Problem" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Problem">
+              <PropertyRef Name="ID_problem" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ID_problem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID_service" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ID_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Service-kind">
+          <End Role="Service-kind" Type="Self.Service-kind" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service-kind">
+              <PropertyRef Name="ID_kindservice" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="ID_kindservice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Service-type">
+          <End Role="Service-type" Type="Self.Service-type" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service-type">
+              <PropertyRef Name="ID_serviceType" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="ID_serviceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service-subscriber_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Service-subscriber" Type="Self.Service-subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID_service" />
+            </Principal>
+            <Dependent Role="Service-subscriber">
+              <PropertyRef Name="ID_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service-subscriber_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Service-subscriber" Type="Self.Service-subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Service-subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_user" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="ID_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Support_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Support" Type="Self.Support" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Support">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Telecom_Neva_SvyazModelContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Development-type" EntityType="Self.Development-type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment-type" EntityType="Self.Equipment-type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Problem" EntityType="Self.Problem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service-kind" EntityType="Self.Service-kind" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service-type" EntityType="Self.Service-type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscriber" EntityType="Self.Subscriber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Support" EntityType="Self.Support" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service-subscriber" EntityType="Self.Service-subscriber" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Service-subscriber].[ID_service] AS [ID_service], 
+    [Service-subscriber].[ID_subscriber] AS [ID_subscriber]
+    FROM [dbo].[Service-subscriber] AS [Service-subscriber]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Address_District" Association="Self.FK_Address_District">
+            <End Role="District" EntitySet="District" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Subscriber" Association="Self.FK_Address_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_Subscriber" Association="Self.FK_Contract_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_District_Development-type" Association="Self.FK_District_Development-type">
+            <End Role="Development-type" EntitySet="Development-type" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Equipment-type" Association="Self.FK_Equipment_Equipment-type">
+            <End Role="Equipment-type" EntitySet="Equipment-type" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Role" Association="Self.FK_Events_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passport_Subscriber" Association="Self.FK_Passport_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Passport" EntitySet="Passport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_Subscriber" Association="Self.FK_Rent_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Equipment" Association="Self.FK_Request_Equipment">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Problem" Association="Self.FK_Request_Problem">
+            <End Role="Problem" EntitySet="Problem" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Service" Association="Self.FK_Request_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Subscriber" Association="Self.FK_Request_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Service-kind" Association="Self.FK_Service_Service-kind">
+            <End Role="Service-kind" EntitySet="Service-kind" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Service-type" Association="Self.FK_Service_Service-type">
+            <End Role="Service-type" EntitySet="Service-type" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service-subscriber_Service" Association="Self.FK_Service-subscriber_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Service-subscriber" EntitySet="Service-subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service-subscriber_Subscriber" Association="Self.FK_Service-subscriber_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Service-subscriber" EntitySet="Service-subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Users1" Association="Self.FK_Subscriber_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Support_Subscriber" Association="Self.FK_Support_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Support" EntitySet="Support" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Telecom_Neva_SvyazModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID_address" />
+          </Key>
+          <Property Name="ID_address" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_district" Type="Int32" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="house" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="building" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="flat" Type="Int32" Nullable="false" />
+          <Property Name="room" Type="Int32" />
+          <Property Name="ID_subscriber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="District" Relationship="Self.FK_Address_District" FromRole="Address" ToRole="District" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.FK_Address_Subscriber" FromRole="Address" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="ID_contract" />
+          </Key>
+          <Property Name="ID_contract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contract_Number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Conclusion_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Termination_date" Type="DateTime" Precision="0" />
+          <Property Name="Termination_reason" Type="DateTime" Precision="0" />
+          <Property Name="ID_subscriber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.FK_Contract_Subscriber" FromRole="Contract" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Development_type">
+          <Key>
+            <PropertyRef Name="ID_development_type" />
+          </Key>
+          <Property Name="ID_development_type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="District" Relationship="Self.FK_District_Development_type" FromRole="Development_type" ToRole="District" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="ID_district" />
+          </Key>
+          <Property Name="ID_district" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Square" Type="Double" Nullable="false" />
+          <Property Name="Population" Type="Int32" Nullable="false" />
+          <Property Name="Stations_number" Type="Int32" Nullable="false" />
+          <Property Name="ID_development" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.FK_Address_District" FromRole="District" ToRole="Address" />
+          <NavigationProperty Name="Development_type" Relationship="Self.FK_District_Development_type" FromRole="District" ToRole="Development_type" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="ID_equipment" />
+          </Key>
+          <Property Name="ID_equipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Serial_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_type" Type="Int32" Nullable="false" />
+          <Property Name="ID_subscriber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Equipment_type" Relationship="Self.FK_Equipment_Equipment_type" FromRole="Equipment" ToRole="Equipment_type" />
+          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Equipment" FromRole="Equipment" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="Equipment_type">
+          <Key>
+            <PropertyRef Name="ID_type_equipment" />
+          </Key>
+          <Property Name="ID_type_equipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Equipment_Equipment_type" FromRole="Equipment_type" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID_Events" />
+          </Key>
+          <Property Name="ID_Events" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Events_Role" FromRole="Events" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Passport">
+          <Key>
+            <PropertyRef Name="ID_passport" />
+          </Key>
+          <Property Name="ID_passport" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_subscriber" Type="Int32" Nullable="false" />
+          <Property Name="Passport_Series" Type="Int32" Nullable="false" />
+          <Property Name="Passport_number" Type="Int32" Nullable="false" />
+          <Property Name="Issue_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Issued_by" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.FK_Passport_Subscriber" FromRole="Passport" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Problem">
+          <Key>
+            <PropertyRef Name="ID_problem" />
+          </Key>
+          <Property Name="ID_problem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Problem" FromRole="Problem" ToRole="Request" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="ID_rent" />
+          </Key>
+          <Property Name="ID_rent" Type="Int32" Nullable="false" />
+          <Property Name="Contract_number" Type="Int32" Nullable="false" />
+          <Property Name="Payment_terms" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_subscriber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.FK_Rent_Subscriber" FromRole="Rent" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="ID_request" />
+          </Key>
+          <Property Name="ID_request" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Request_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_service" Type="Int32" Nullable="false" />
+          <Property Name="ID_problem" Type="Int32" Nullable="false" />
+          <Property Name="Creation_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Closing_date" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Discription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ID_subscriber" Type="Int32" Nullable="false" />
+          <Property Name="ID_equipment" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Request_Equipment" FromRole="Request" ToRole="Equipment" />
+          <NavigationProperty Name="Problem" Relationship="Self.FK_Request_Problem" FromRole="Request" ToRole="Problem" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_Request_Service" FromRole="Request" ToRole="Service" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.FK_Request_Subscriber" FromRole="Request" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Events" Relationship="Self.FK_Events_Role" FromRole="Role" ToRole="Events" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID_service" />
+          </Key>
+          <Property Name="ID_service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_kindservice" Type="Int32" Nullable="false" />
+          <Property Name="ID_serviceType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Service" FromRole="Service" ToRole="Request" />
+          <NavigationProperty Name="Service_kind" Relationship="Self.FK_Service_Service_kind" FromRole="Service" ToRole="Service_kind" />
+          <NavigationProperty Name="Service_type" Relationship="Self.FK_Service_Service_type" FromRole="Service" ToRole="Service_type" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.Service_subscriber" FromRole="Service" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Service_kind">
+          <Key>
+            <PropertyRef Name="ID_kindservice" />
+          </Key>
+          <Property Name="ID_kindservice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_Service_Service_kind" FromRole="Service_kind" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Service_type">
+          <Key>
+            <PropertyRef Name="ID_serviceType" />
+          </Key>
+          <Property Name="ID_serviceType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_Service_Service_type" FromRole="Service_type" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="ID_subscriber" />
+          </Key>
+          <Property Name="ID_subscriber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_user" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Subscriber_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Personal_account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.FK_Address_Subscriber" FromRole="Subscriber" ToRole="Address" />
+          <NavigationProperty Name="Contract" Relationship="Self.FK_Contract_Subscriber" FromRole="Subscriber" ToRole="Contract" />
+          <NavigationProperty Name="Passport" Relationship="Self.FK_Passport_Subscriber" FromRole="Subscriber" ToRole="Passport" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_Subscriber" FromRole="Subscriber" ToRole="Rent" />
+          <NavigationProperty Name="Request" Relationship="Self.FK_Request_Subscriber" FromRole="Subscriber" ToRole="Request" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Subscriber_Users1" FromRole="Subscriber" ToRole="Users" />
+          <NavigationProperty Name="Support" Relationship="Self.FK_Support_Subscriber" FromRole="Subscriber" ToRole="Support" />
+          <NavigationProperty Name="Service" Relationship="Self.Service_subscriber" FromRole="Subscriber" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="ID_support" />
+          </Key>
+          <Property Name="ID_support" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_subscriber" Type="Int32" Nullable="false" />
+          <Property Name="Application_data" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.FK_Support_Subscriber" FromRole="Support" ToRole="Subscriber" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID_user" />
+          </Key>
+          <Property Name="ID_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.FK_Subscriber_Users1" FromRole="Users" ToRole="Subscriber" />
+        </EntityType>
+        <Association Name="FK_Address_District">
+          <End Role="District" Type="Self.District" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="ID_district" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ID_district" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_District_Development_type">
+          <End Role="Development_type" Type="Self.Development_type" Multiplicity="1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Development_type">
+              <PropertyRef Name="ID_development_type" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ID_development" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_Equipment_type">
+          <End Role="Equipment_type" Type="Self.Equipment_type" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment_type">
+              <PropertyRef Name="ID_type_equipment" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="ID_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Equipment">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="ID_equipment" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ID_equipment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Passport_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Passport" Type="Self.Passport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Passport">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Problem">
+          <End Role="Problem" Type="Self.Problem" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Problem">
+              <PropertyRef Name="ID_problem" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ID_problem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ID_service" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ID_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Service_kind">
+          <End Role="Service_kind" Type="Self.Service_kind" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service_kind">
+              <PropertyRef Name="ID_kindservice" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="ID_kindservice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_Service_type">
+          <End Role="Service_type" Type="Self.Service_type" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service_type">
+              <PropertyRef Name="ID_serviceType" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="ID_serviceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscriber_Users1">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_user" />
+            </Principal>
+            <Dependent Role="Subscriber">
+              <PropertyRef Name="ID_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Support_Subscriber">
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="1" />
+          <End Role="Support" Type="Self.Support" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscriber">
+              <PropertyRef Name="ID_subscriber" />
+            </Principal>
+            <Dependent Role="Support">
+              <PropertyRef Name="ID_subscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Service_subscriber">
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <End Role="Subscriber" Type="Self.Subscriber" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Telecom_Neva_SvyazEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Address" EntityType="Self.Address" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" />
+          <EntitySet Name="Development_type" EntityType="Self.Development_type" />
+          <EntitySet Name="District" EntityType="Self.District" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" />
+          <EntitySet Name="Equipment_type" EntityType="Self.Equipment_type" />
+          <EntitySet Name="Events" EntityType="Self.Events" />
+          <EntitySet Name="Passport" EntityType="Self.Passport" />
+          <EntitySet Name="Problem" EntityType="Self.Problem" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" />
+          <EntitySet Name="Request" EntityType="Self.Request" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="Service_kind" EntityType="Self.Service_kind" />
+          <EntitySet Name="Service_type" EntityType="Self.Service_type" />
+          <EntitySet Name="Subscriber" EntityType="Self.Subscriber" />
+          <EntitySet Name="Support" EntityType="Self.Support" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_Address_District" Association="Self.FK_Address_District">
+            <End Role="District" EntitySet="District" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Subscriber" Association="Self.FK_Address_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_Subscriber" Association="Self.FK_Contract_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_District_Development_type" Association="Self.FK_District_Development_type">
+            <End Role="Development_type" EntitySet="Development_type" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_Equipment_type" Association="Self.FK_Equipment_Equipment_type">
+            <End Role="Equipment_type" EntitySet="Equipment_type" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Equipment" Association="Self.FK_Request_Equipment">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Role" Association="Self.FK_Events_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Passport_Subscriber" Association="Self.FK_Passport_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Passport" EntitySet="Passport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Problem" Association="Self.FK_Request_Problem">
+            <End Role="Problem" EntitySet="Problem" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_Subscriber" Association="Self.FK_Rent_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Service" Association="Self.FK_Request_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Subscriber" Association="Self.FK_Request_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Service_kind" Association="Self.FK_Service_Service_kind">
+            <End Role="Service_kind" EntitySet="Service_kind" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_Service_type" Association="Self.FK_Service_Service_type">
+            <End Role="Service_type" EntitySet="Service_type" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscriber_Users1" Association="Self.FK_Subscriber_Users1">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Support_Subscriber" Association="Self.FK_Support_Subscriber">
+            <End Role="Subscriber" EntitySet="Subscriber" />
+            <End Role="Support" EntitySet="Support" />
+          </AssociationSet>
+          <AssociationSet Name="Service_subscriber" Association="Self.Service_subscriber">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Subscriber" EntitySet="Subscriber" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Telecom_Neva_SvyazModelContainer" CdmEntityContainer="Telecom_Neva_SvyazEntities">
+          <EntitySetMapping Name="Address">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="ID_address" ColumnName="ID_address" />
+                <ScalarProperty Name="ID_district" ColumnName="ID_district" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="house" ColumnName="house" />
+                <ScalarProperty Name="building" ColumnName="building" />
+                <ScalarProperty Name="flat" ColumnName="flat" />
+                <ScalarProperty Name="room" ColumnName="room" />
+                <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contract">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="ID_contract" ColumnName="ID_contract" />
+                <ScalarProperty Name="Contract_Number" ColumnName="Contract_Number" />
+                <ScalarProperty Name="Conclusion_date" ColumnName="Conclusion_date" />
+                <ScalarProperty Name="Termination_date" ColumnName="Termination_date" />
+                <ScalarProperty Name="Termination_reason" ColumnName="Termination_reason" />
+                <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Development_type">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Development_type">
+              <MappingFragment StoreEntitySet="Development-type">
+                <ScalarProperty Name="ID_development_type" ColumnName="ID_development_type" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="District">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="ID_district" ColumnName="ID_district" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+                <ScalarProperty Name="Stations_number" ColumnName="Stations_number" />
+                <ScalarProperty Name="ID_development" ColumnName="ID_development" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="ID_equipment" ColumnName="ID_equipment" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Serial_number" ColumnName="Serial_number" />
+                <ScalarProperty Name="ID_type" ColumnName="ID_type" />
+                <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipment_type">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Equipment_type">
+              <MappingFragment StoreEntitySet="Equipment-type">
+                <ScalarProperty Name="ID_type_equipment" ColumnName="ID_type_equipment" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Events">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="ID_Events" ColumnName="ID_Events" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passport">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Passport">
+              <MappingFragment StoreEntitySet="Passport">
+                <ScalarProperty Name="ID_passport" ColumnName="ID_passport" />
+                <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+                <ScalarProperty Name="Passport_Series" ColumnName="Passport_Series" />
+                <ScalarProperty Name="Passport_number" ColumnName="Passport_number" />
+                <ScalarProperty Name="Issue_date" ColumnName="Issue_date" />
+                <ScalarProperty Name="Issued_by" ColumnName="Issued_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Problem">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Problem">
+              <MappingFragment StoreEntitySet="Problem">
+                <ScalarProperty Name="ID_problem" ColumnName="ID_problem" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rent">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="ID_rent" ColumnName="ID_rent" />
+                <ScalarProperty Name="Contract_number" ColumnName="Contract_number" />
+                <ScalarProperty Name="Payment_terms" ColumnName="Payment_terms" />
+                <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Request">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="ID_request" ColumnName="ID_request" />
+                <ScalarProperty Name="Request_number" ColumnName="Request_number" />
+                <ScalarProperty Name="ID_service" ColumnName="ID_service" />
+                <ScalarProperty Name="ID_problem" ColumnName="ID_problem" />
+                <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+                <ScalarProperty Name="Closing_date" ColumnName="Closing_date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+                <ScalarProperty Name="ID_equipment" ColumnName="ID_equipment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="ID_service" ColumnName="ID_service" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID_kindservice" ColumnName="ID_kindservice" />
+                <ScalarProperty Name="ID_serviceType" ColumnName="ID_serviceType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service_kind">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Service_kind">
+              <MappingFragment StoreEntitySet="Service-kind">
+                <ScalarProperty Name="ID_kindservice" ColumnName="ID_kindservice" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service_type">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Service_type">
+              <MappingFragment StoreEntitySet="Service-type">
+                <ScalarProperty Name="ID_serviceType" ColumnName="ID_serviceType" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriber">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Subscriber">
+              <MappingFragment StoreEntitySet="Subscriber">
+                <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Subscriber_number" ColumnName="Subscriber_number" />
+                <ScalarProperty Name="Personal_account" ColumnName="Personal_account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Support">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Support">
+              <MappingFragment StoreEntitySet="Support">
+                <ScalarProperty Name="ID_support" ColumnName="ID_support" />
+                <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+                <ScalarProperty Name="Application_data" ColumnName="Application_data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Telecom_Neva_SvyazModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Service_subscriber" TypeName="Telecom_Neva_SvyazModel.Service_subscriber" StoreEntitySet="Service-subscriber">
+            <EndProperty Name="Service">
+              <ScalarProperty Name="ID_service" ColumnName="ID_service" />
+            </EndProperty>
+            <EndProperty Name="Subscriber">
+              <ScalarProperty Name="ID_subscriber" ColumnName="ID_subscriber" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
